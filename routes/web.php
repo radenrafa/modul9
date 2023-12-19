@@ -27,7 +27,7 @@ Route::delete('/cart/{id}', [App\Http\Controllers\HomeController::class, 'destro
 
 Auth::routes();
 
-Route::prefix('admin')->group(function () {
+Route::prefix('admin')->middleware('role:admin')->group(function () {
 
     // dashboard 
     Route::get('', [App\Http\Controllers\Backend\IndexController::class, 'index'])->name('dashboard');
